@@ -1,0 +1,5 @@
+bucket         = "bartparka-personal-edap-terraform-state"
+dynamodb_table = "bartparka-personal-terraform-state-lock-dynamo"
+profile        = "personal"
+key            = "github-repos.tfstate"
+region         = "eu-west-2"
