@@ -5,6 +5,11 @@ on:
     branches:
       - master
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
 jobs:
   tf_fmt:
     name: Deploy Terraform
@@ -26,18 +31,7 @@ jobs:
     - name: Terraform Plan
       id: plan
       run: terraform plan -no-color -var-file=vars/common.tfvars -var-file=vars/personal/vars.tfvars
-      continue-on-error: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: 'terraform'
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
     - name: Terraform Apply
       id: apply
       run: terraform apply -no-color -var-file=vars/common.tfvars -var-file=vars/personal/vars.tfvars
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        TF_ACTION_WORKING_DIR: 'terraform'
-        AWS_ACCESS_KEY_ID:  ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY:  ${{ secrets.AWS_SECRET_ACCESS_KEY }}
