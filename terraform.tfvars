@@ -3,5 +3,6 @@ repos = [
   "terraform-images-s3",
   "terraform-test-repo",
   "chatgpt-tests",
-  "elongator-django
+  "elongator-django",
+  "elongator-api"
 ]
