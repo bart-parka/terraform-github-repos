@@ -5,5 +5,6 @@ repos = [
   "chatgpt-tests",
   "elongator-django",
   "elongator-api",
-  "terraform-simple-web-app"
+  "terraform-simple-web-app",
+  "react-django-app"
 ]
